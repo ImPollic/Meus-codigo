@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello World!</title>
+        <style>
+            button {
+                position: static;
+                vertical-align: top;
+                width: 150px;
+                height: 150px;
+                background-color:  rgb(255, 255, 255);
+                font-size: 350%;
+                border: 1px solid black;
+            }
+            #reset {
+                width: 50px;
+                height: 25px;
+                font-size: 100%;
+            }
+            html {
+                background-color: rgb(216, 216, 216);
+            }
+            p{
+                font-size: 200%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1 id="ala">Jogo da Luana</h1>
+        <button id="c1"> </button>
+        <button id="c2"> </button>
+        <button id="c3"> </button>
+        <br>
+        <button id="b1"> </button>
+        <button id="b2"> </button>
+        <button id="b3"> </button>
+        <br>
+        <button id="a1"> </button>
+        <button id="a2"> </button>
+        <button id="a3"> </button>
+        <br>
+        <button id="reset">reset</button>
+        <p id="proximo"></p>
+
+    </body>
+    <script>
+        const txt = document.getElementById("ala");
+
+        const a1 = document.getElementById("a1");
+        const a2 = document.getElementById("a2");
+        const a3 = document.getElementById("a3");
+        const b1 = document.getElementById("b1");
+        const b2 = document.getElementById("b2");
+        const b3 = document.getElementById("b3");
+        const c1 = document.getElementById("c1");
+        const c2 = document.getElementById("c2");
+        const c3 = document.getElementById("c3");
+
+        const reset = document.getElementById("reset");
+
+        const proximo = document.getElementById("proximo");
+       
+        var control = 1;
+        
+        function XO(){
+        if(control%2==0){
+            txt.innerText="Jogo da Luana: vez do X";
+            return "O";
+        } else {
+            txt.innerText="Jogo da Luana: vez da O";
+            return "X";
+        }
+       }
+
+        function Botarx(lugar){
+            lugar.onclick = () => {
+                if(lugar.innerText==''){
+                lugar.innerText=XO();
+
+                } else {control++}
+            control++;
+    }
+        }
+
+        Botarx(a1);
+        Botarx(a2);
+        Botarx(a3);
+        Botarx(b1);
+        Botarx(b2);
+        Botarx(b3);
+        Botarx(c1);
+        Botarx(c2);
+        Botarx(c3);
+
+
+
+        reset.onclick = () => {
+            control=1;
+            txt.innerText="Jogo da Luana";
+            c1.innerText="";
+            c2.innerText="";
+            c3.innerText="";
+            a1.innerText="";
+            a2.innerText="";
+            a3.innerText="";
+            b1.innerText="";
+            b2.innerText="";
+            b3.innerText="";
+        }
+
+    </script>
+</html>
+
